@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "argus-proto1"
+version = "0.1.0"
+description = "Argus Proto 1: offline Sentinel-1 style vessel detection baseline"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Argus Contributors" }]
+dependencies = [
+  "numpy>=1.24,<3",
+  "Pillow>=10,<12",
+  "tifffile>=2024.2.12,<2027",
+  "torch>=2.2,<2.8",
+  "torchvision>=0.17,<0.23",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+argus = "argus.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
